@@ -1,0 +1,92 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTAWhatsApp from '../../components/CTAWhatsApp.astro';
+
+const servicos = [
+  {
+    title: 'Projeto Residencial',
+    description: 'Casas e apartamentos projetados para funcionar no cotidiano de quem vai morar — não só nas fotos de entrega. Do programa de necessidades ao projeto executivo.',
+    href: '/servicos/projeto-residencial',
+    star: false,
+  },
+  {
+    title: 'Projeto Comercial',
+    description: 'Lojas, escritórios e espaços de atendimento que traduzem a identidade da marca e funcionam como ferramenta de negócio.',
+    href: '/servicos/projeto-comercial',
+    star: false,
+  },
+  {
+    title: 'Reforma e Retrofit',
+    description: 'Atualização de espaços existentes — sem desperdício de estrutura, com clareza sobre o que vale renovar e o que pode ser reaproveitado.',
+    href: '/servicos/reforma-retrofit',
+    star: false,
+  },
+  {
+    title: 'Design de Interiores',
+    description: 'Especificação técnica de materiais, acabamentos e mobiliário — integrada ao projeto arquitetônico para garantir coerência visual e funcional.',
+    href: '/servicos/design-de-interiores',
+    star: false,
+  },
+  {
+    title: 'Administração de Obras',
+    description: 'Acompanhamento técnico de toda a execução: visitas periódicas, controle de cronograma, mediação com fornecedores e relatórios para o cliente. O serviço que garante que o projeto saia como foi aprovado.',
+    href: '/servicos/administracao-de-obras',
+    star: true,
+  },
+];
+---
+
+<Layout
+  title="Serviços — Manià Arquitetura"
+  description="Projeto residencial, comercial, reforma, design de interiores e administração de obras em Sorocaba/SP. Conheça os serviços da Manià Arquitetura."
+>
+  <!-- Hero -->
+  <section class="bg-stone-50 pt-16 pb-20 px-6 border-b border-stone-200">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-stone-500 text-xs font-medium tracking-widest uppercase mb-4">Serviços</p>
+      <h1 class="text-4xl sm:text-5xl font-semibold text-stone-900 tracking-tight mb-5">
+        O que fazemos
+      </h1>
+      <p class="text-lg text-stone-500 max-w-2xl leading-relaxed">
+        Cada projeto é diferente — mas o método é o mesmo: entender antes de propor, propor com clareza e entregar com rastreabilidade.
+      </p>
+    </div>
+  </section>
+
+  <!-- Lista de serviços -->
+  <section class="bg-white py-16 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col gap-5">
+      {servicos.map((s, i) => (
+        <a
+          href={s.href}
+          class={`group flex flex-col sm:flex-row sm:items-start gap-6 p-8 rounded-xl border transition-all ${
+            s.star
+              ? 'bg-stone-900 border-stone-900 hover:bg-stone-800'
+              : 'bg-stone-50 border-stone-200 hover:border-stone-400'
+          }`}
+        >
+          <span class={`text-sm font-mono shrink-0 pt-0.5 ${s.star ? 'text-stone-500' : 'text-stone-300'}`}>0{i + 1}</span>
+          <div class="flex-1">
+            <div class="flex items-center gap-3 mb-2.5">
+              <h2 class={`text-xl font-semibold ${s.star ? 'text-stone-100' : 'text-stone-900'}`}>{s.title}</h2>
+              {s.star && (
+                <span class="text-[10px] font-semibold tracking-widest uppercase bg-stone-700 text-stone-300 px-2 py-0.5 rounded-full">
+                  Destaque
+                </span>
+              )}
+            </div>
+            <p class={`text-sm leading-relaxed ${s.star ? 'text-stone-400' : 'text-stone-500'}`}>{s.description}</p>
+          </div>
+          <div class={`shrink-0 flex items-center gap-1 text-sm font-medium mt-2 sm:mt-0 sm:self-center ${s.star ? 'text-stone-400' : 'text-stone-500'} group-hover:gap-2 transition-all`}>
+            Ver mais
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <CTAWhatsApp />
+</Layout>

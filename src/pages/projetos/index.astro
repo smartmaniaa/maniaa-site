@@ -1,0 +1,98 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTAWhatsApp from '../../components/CTAWhatsApp.astro';
+
+// COMO ADICIONAR PROJETOS:
+// Adicione um objeto ao array abaixo com as seguintes propriedades:
+// {
+//   slug: 'nome-do-projeto',           // URL: /projetos/nome-do-projeto
+//   title: 'Título do Projeto',
+//   category: 'Residencial',           // Residencial | Comercial | Reforma | Interiores
+//   location: 'Sorocaba/SP',
+//   year: '2024',
+//   description: 'Breve descrição...',
+//   cover: '/projetos/nome-do-projeto/capa.jpg',  // imagem em public/projetos/
+//   featured: true,                    // aparece em destaque na home
+// }
+const projetos: any[] = [
+  // Nenhum projeto cadastrado ainda.
+  // Adicione aqui quando tiver imagens aprovadas.
+];
+
+const categorias = ['Todos', 'Residencial', 'Comercial', 'Reforma', 'Interiores'];
+---
+
+<Layout
+  title="Projetos — Manià Arquitetura | Sorocaba/SP"
+  description="Portfólio de projetos da Manià Arquitetura — residencial, comercial, reforma e design de interiores em Sorocaba/SP."
+>
+  <section class="bg-stone-50 pt-16 pb-20 px-6 border-b border-stone-200">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-stone-500 text-xs font-medium tracking-widest uppercase mb-4">Portfólio</p>
+      <h1 class="text-4xl sm:text-5xl font-semibold text-stone-900 tracking-tight mb-5">
+        Projetos
+      </h1>
+      <p class="text-lg text-stone-500 max-w-xl leading-relaxed">
+        Doze anos, dezenas de projetos. Cada obra entregue é a prova de que o método funciona.
+      </p>
+    </div>
+  </section>
+
+  {projetos.length === 0 ? (
+    <section class="bg-white py-24 px-6">
+      <div class="max-w-6xl mx-auto text-center">
+        <div class="inline-flex items-center gap-2 text-stone-400 text-sm mb-6">
+          <div class="w-2 h-2 rounded-full bg-stone-300"></div>
+          Portfólio em construção
+        </div>
+        <h2 class="text-2xl font-semibold text-stone-700 mb-4">Os projetos chegam em breve.</h2>
+        <p class="text-stone-400 max-w-md mx-auto leading-relaxed">
+          Estamos selecionando as imagens e organizando os casos. Enquanto isso, veja como trabalhamos ou entre em contato.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+          <a href="/processo" class="inline-flex items-center justify-center border border-stone-300 text-stone-700 font-medium px-6 py-3 rounded-lg hover:border-stone-500 transition-colors">
+            Como trabalhamos
+          </a>
+          <a
+            href="https://wa.me/5515991252290?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20ver%20projetos%20anteriores"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center bg-stone-900 text-stone-100 font-medium px-6 py-3 rounded-lg hover:bg-stone-700 transition-colors"
+          >
+            Pedir referências pelo WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+  ) : (
+    <section class="bg-white py-16 px-6">
+      <div class="max-w-6xl mx-auto">
+        <!-- Filtros por categoria -->
+        <div class="flex flex-wrap gap-2 mb-10">
+          {categorias.map(cat => (
+            <button class="px-4 py-2 rounded-full text-sm font-medium border border-stone-300 text-stone-600 hover:border-stone-500 hover:text-stone-900 transition-colors">
+              {cat}
+            </button>
+          ))}
+        </div>
+        <!-- Grid de projetos -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projetos.map(p => (
+            <a href={`/projetos/${p.slug}`} class="group rounded-xl overflow-hidden border border-stone-200 hover:border-stone-400 transition-colors">
+              <div class="aspect-[4/3] bg-stone-100 overflow-hidden">
+                <img src={p.cover} alt={p.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              </div>
+              <div class="p-5">
+                <p class="text-xs text-stone-400 font-medium uppercase tracking-wider mb-1.5">{p.category} · {p.year}</p>
+                <h3 class="font-semibold text-stone-900">{p.title}</h3>
+                <p class="text-stone-500 text-sm mt-1">{p.location}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <CTAWhatsApp />
+</Layout>

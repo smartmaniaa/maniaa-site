@@ -1,0 +1,70 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTAWhatsApp from '../../components/CTAWhatsApp.astro';
+
+// COMO ADICIONAR ARTIGOS:
+// Adicione um objeto ao array abaixo:
+// {
+//   slug: 'titulo-do-artigo',
+//   title: 'Título do artigo',
+//   excerpt: 'Resumo em 1-2 frases',
+//   date: '2024-06-01',
+//   category: 'Obras',
+//   readTime: '5 min',
+// }
+const artigos: any[] = [];
+---
+
+<Layout
+  title="Blog — Manià Arquitetura | Sorocaba/SP"
+  description="Artigos sobre arquitetura, obras e projetos da Manià Arquitetura em Sorocaba/SP."
+>
+  <section class="bg-stone-50 pt-16 pb-20 px-6 border-b border-stone-200">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-stone-500 text-xs font-medium tracking-widest uppercase mb-4">Blog</p>
+      <h1 class="text-4xl sm:text-5xl font-semibold text-stone-900 tracking-tight mb-5">
+        Ideias e referências
+      </h1>
+      <p class="text-lg text-stone-500 max-w-xl leading-relaxed">
+        Artigos diretos sobre projetos, obras e decisões de arquitetura — sem enrolação.
+      </p>
+    </div>
+  </section>
+
+  {artigos.length === 0 ? (
+    <section class="bg-white py-24 px-6">
+      <div class="max-w-6xl mx-auto text-center">
+        <div class="inline-flex items-center gap-2 text-stone-400 text-sm mb-6">
+          <div class="w-2 h-2 rounded-full bg-stone-300"></div>
+          Em construção
+        </div>
+        <h2 class="text-2xl font-semibold text-stone-700 mb-4">Os primeiros artigos chegam em breve.</h2>
+        <p class="text-stone-400 max-w-md mx-auto leading-relaxed">
+          Enquanto isso, entre em contato ou conheça os serviços.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+          <a href="/servicos" class="inline-flex items-center justify-center border border-stone-300 text-stone-700 font-medium px-6 py-3 rounded-lg hover:border-stone-500 transition-colors">
+            Ver serviços
+          </a>
+        </div>
+      </div>
+    </section>
+  ) : (
+    <section class="bg-white py-16 px-6">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {artigos.map(a => (
+          <a href={`/blog/${a.slug}`} class="group flex flex-col border border-stone-200 rounded-xl overflow-hidden hover:border-stone-400 transition-colors">
+            <div class="p-7 flex flex-col flex-1">
+              <p class="text-xs text-stone-400 font-medium uppercase tracking-wider mb-3">{a.category} · {a.readTime} de leitura</p>
+              <h2 class="text-lg font-semibold text-stone-900 mb-2 group-hover:text-stone-600 transition-colors">{a.title}</h2>
+              <p class="text-stone-500 text-sm leading-relaxed flex-1">{a.excerpt}</p>
+              <p class="text-stone-400 text-xs mt-4">{new Date(a.date).toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' })}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <CTAWhatsApp />
+</Layout>

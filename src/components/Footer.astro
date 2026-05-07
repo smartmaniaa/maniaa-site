@@ -1,0 +1,57 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-stone-900 text-stone-400">
+  <div class="max-w-6xl mx-auto px-6 py-14">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <!-- Brand -->
+      <div>
+        <p class="text-stone-100 font-semibold text-base mb-3">Manià Arquitetura</p>
+        <p class="text-sm leading-relaxed">
+          Arquitetura e urbanismo em Sorocaba/SP.<br />
+          Do projeto à chave.
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <p class="text-stone-100 font-medium text-sm mb-4">Serviços</p>
+        <ul class="flex flex-col gap-2 text-sm">
+          <li><a href="/servicos/projeto-residencial" class="hover:text-stone-100 transition-colors">Projeto Residencial</a></li>
+          <li><a href="/servicos/projeto-comercial" class="hover:text-stone-100 transition-colors">Projeto Comercial</a></li>
+          <li><a href="/servicos/reforma-retrofit" class="hover:text-stone-100 transition-colors">Reforma e Retrofit</a></li>
+          <li><a href="/servicos/design-de-interiores" class="hover:text-stone-100 transition-colors">Design de Interiores</a></li>
+          <li><a href="/servicos/administracao-de-obras" class="hover:text-stone-100 transition-colors">Administração de Obras</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <p class="text-stone-100 font-medium text-sm mb-4">Contato</p>
+        <ul class="flex flex-col gap-2 text-sm">
+          <li>
+            <a href="tel:+5515991252290" class="hover:text-stone-100 transition-colors">(15) 9125-2290</a>
+          </li>
+          <li>
+            <a href="mailto:leonardo@maniaa.com.br" class="hover:text-stone-100 transition-colors">leonardo@maniaa.com.br</a>
+          </li>
+          <li>
+            <a
+              href="https://wa.me/5515991252290?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20meu%20projeto"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-stone-100 transition-colors"
+            >WhatsApp</a>
+          </li>
+          <li class="text-stone-500 mt-1">Sorocaba/SP</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-6 border-t border-stone-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-stone-600">
+      <p>&copy; {year} Manià Arquitetura. Todos os direitos reservados.</p>
+      <p>arquiteto sorocaba · reforma comercial sorocaba · administração de obras sorocaba</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTAWhatsApp from '../components/CTAWhatsApp.astro';
+
+const etapas = [
+  {
+    n: '01',
+    title: 'Conversa inicial',
+    duration: '1 encontro',
+    body: 'Sem formulário, sem PowerPoint. A gente ouve o que você tem em mente — uso, programa, orçamento estimado, referências, prazos. Nada de proposta genérica.',
+  },
+  {
+    n: '02',
+    title: 'Estudo da sua ideia',
+    duration: '3–5 dias',
+    body: 'Antes de qualquer proposta, desenhamos o que você descreveu. O objetivo é testar se o que está na cabeça funciona no espaço real. Então mostramos — e explicamos o que precisa ajustar.',
+  },
+  {
+    n: '03',
+    title: 'Proposta de projeto',
+    duration: '1 reunião',
+    body: 'Com o estudo em mãos, a proposta faz sentido. Você sabe o que está contratando, em quantas etapas, com qual prazo e qual investimento. Sem surpresa no meio do caminho.',
+  },
+  {
+    n: '04',
+    title: 'Desenvolvimento do projeto',
+    duration: 'Conforme escopo',
+    body: 'Anteprojeto, projeto legal, projeto executivo e detalhamentos — cada etapa com aprovação antes de avançar. Você acompanha o processo, não só o resultado.',
+  },
+  {
+    n: '05',
+    title: 'Aprovação e licenças',
+    duration: 'Conforme órgão',
+    body: 'Quando necessário, gerenciamos o processo de aprovação em prefeitura, corpo de bombeiros e outros órgãos. Você não precisa correr atrás disso.',
+  },
+  {
+    n: '06',
+    title: 'Administração de obras (opcional)',
+    duration: 'Durante a execução',
+    body: 'Se contratada, a Manià acompanha a execução com visitas, relatórios e mediação técnica. O projeto que você aprovou é o que será entregue.',
+  },
+];
+---
+
+<Layout
+  title="Como Trabalhamos — Manià Arquitetura"
+  description="Conheça o método de trabalho da Manià Arquitetura: do primeiro contato à entrega da chave, com clareza em cada etapa."
+>
+  <!-- Hero -->
+  <section class="bg-stone-50 pt-16 pb-20 px-6 border-b border-stone-200">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-stone-500 text-xs font-medium tracking-widest uppercase mb-4">Método</p>
+      <h1 class="text-4xl sm:text-5xl font-semibold text-stone-900 tracking-tight mb-5 max-w-2xl">
+        Do projeto à chave. Com clareza em cada etapa.
+      </h1>
+      <p class="text-lg text-stone-500 leading-relaxed max-w-2xl">
+        Não existe projeto "padrão" aqui. Mas existe um processo definido — para que você saiba o que esperar, quando esperar e por quê cada decisão foi tomada.
+      </p>
+    </div>
+  </section>
+
+  <!-- Etapas -->
+  <section class="bg-white py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col gap-0">
+        {etapas.map((e, i) => (
+          <div class={`flex gap-8 py-10 ${i < etapas.length - 1 ? 'border-b border-stone-100' : ''}`}>
+            <div class="flex flex-col items-center">
+              <div class="w-10 h-10 rounded-full bg-stone-900 text-stone-100 flex items-center justify-center text-xs font-semibold shrink-0">
+                {e.n}
+              </div>
+              {i < etapas.length - 1 && (
+                <div class="w-px flex-1 bg-stone-200 mt-3"></div>
+              )}
+            </div>
+            <div class="pb-4 flex-1">
+              <div class="flex items-center gap-3 mb-2">
+                <h2 class="text-xl font-semibold text-stone-900">{e.title}</h2>
+                <span class="text-xs text-stone-400 font-medium bg-stone-100 px-2.5 py-1 rounded-full">{e.duration}</span>
+              </div>
+              <p class="text-stone-500 leading-relaxed">{e.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Tagline / resumo -->
+  <section class="bg-stone-50 py-16 px-6 border-y border-stone-200">
+    <div class="max-w-6xl mx-auto max-w-2xl">
+      <blockquote class="text-2xl font-medium text-stone-700 leading-relaxed">
+        "Antes de propor, a gente desenha o que você imaginou. Só depois mostra o que precisa ajustar — e por quê."
+      </blockquote>
+      <p class="mt-4 text-stone-400 text-sm">— Método Manià</p>
+    </div>
+  </section>
+
+  <CTAWhatsApp
+    headline="Quer entender se faz sentido para o seu projeto?"
+    subtext="Uma conversa de 20 minutos já dá para saber."
+  />
+</Layout>

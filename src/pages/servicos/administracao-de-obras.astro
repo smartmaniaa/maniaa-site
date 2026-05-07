@@ -1,0 +1,170 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CTAWhatsApp from '../../components/CTAWhatsApp.astro';
+
+const etapas = [
+  {
+    n: '01',
+    title: 'Reunião de alinhamento',
+    body: 'Antes de qualquer visita, a gente lê o projeto aprovado e alinha expectativas: o que será verificado, qual o cronograma esperado e como serão os relatórios.',
+  },
+  {
+    n: '02',
+    title: 'Visitas técnicas periódicas',
+    body: 'Acompanhamento presencial nas fases críticas da obra — fundação, estrutura, instalações e acabamentos. Frequência combinada conforme o ritmo da obra.',
+  },
+  {
+    n: '03',
+    title: 'Relatórios com fotos e apontamentos',
+    body: 'Após cada visita, o cliente recebe um relatório claro: o que foi executado, o que está correto, o que precisa de ajuste e o que vem a seguir.',
+  },
+  {
+    n: '04',
+    title: 'Mediação técnica com construtores',
+    body: 'Quando há dúvida ou divergência entre projeto e execução, a Manià intervém tecnicamente — sem conflito, com linguagem profissional.',
+  },
+  {
+    n: '05',
+    title: 'Controle de cronograma',
+    body: 'Identificação antecipada de atrasos e riscos. Com as causas documentadas, fica mais fácil cobrar e renegociar prazos com a construtora.',
+  },
+  {
+    n: '06',
+    title: 'Vistoria final e entrega',
+    body: 'Verificação item a item antes da entrega das chaves: checklist técnico, pendências resolvidas e confirmação de que o projeto foi executado como aprovado.',
+  },
+];
+
+const perguntas = [
+  {
+    q: 'Preciso contratar a Manià para o projeto e para a administração?',
+    a: 'Não necessariamente. A administração de obras pode ser contratada mesmo que o projeto de arquitetura tenha sido feito por outro profissional. Basta ter o projeto aprovado e a documentação completa.',
+  },
+  {
+    q: 'Com que frequência são as visitas?',
+    a: 'Depende do ritmo e do estágio da obra. Em geral, quinzenais nas fases estruturais e semanais em acabamento. Definimos juntos antes de começar.',
+  },
+  {
+    q: 'O que acontece se a construtora não seguir o projeto?',
+    a: 'A gente documenta a divergência, notifica formalmente o responsável e sugere a correção. Se necessário, emite laudo técnico para respaldo contratual.',
+  },
+  {
+    q: 'Esse serviço funciona para reformas menores?',
+    a: 'Sim. Reformas de banheiro, cozinha e áreas de lazer também têm risco de desvio de projeto. O escopo de acompanhamento é adaptado ao porte da obra.',
+  },
+];
+---
+
+<Layout
+  title="Administração de Obras — Manià Arquitetura | Sorocaba/SP"
+  description="Acompanhamento técnico de obras em Sorocaba. Visitas periódicas, relatórios, mediação com construtores. Obra fiel ao projeto, sem surpresas na entrega."
+>
+  <!-- Hero -->
+  <section class="bg-stone-900 pt-16 pb-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-3">
+        <a href="/servicos" class="text-stone-500 text-sm hover:text-stone-400 transition-colors">← Serviços</a>
+      </div>
+      <span class="inline-flex items-center text-[10px] font-semibold tracking-widest uppercase bg-stone-700 text-stone-300 px-2.5 py-1 rounded-full mb-6">
+        Serviço destaque
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-semibold text-stone-100 tracking-tight mb-5 max-w-3xl">
+        Administração de Obras
+      </h1>
+      <p class="text-lg text-stone-400 leading-relaxed max-w-2xl mb-8">
+        O serviço que fecha o ciclo: garante que tudo que foi aprovado no projeto vai sair exatamente assim na execução. O cliente acompanha cada decisão — menos erros, menos retrabalho, obra fiel.
+      </p>
+      <a
+        href="https://wa.me/5515991252290?text=Ol%C3%A1%2C%20tenho%20interesse%20em%20Administra%C3%A7%C3%A3o%20de%20Obras%20e%20gostaria%20de%20conversar"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 bg-white text-stone-900 font-semibold px-6 py-3.5 rounded-lg hover:bg-stone-100 transition-colors"
+      >
+        Solicitar orçamento
+      </a>
+    </div>
+  </section>
+
+  <!-- O que inclui -->
+  <section class="bg-white py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-12">
+        <p class="text-stone-500 text-xs font-medium tracking-widest uppercase mb-3">Como funciona</p>
+        <h2 class="text-3xl font-semibold text-stone-900 tracking-tight">Etapas do acompanhamento</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {etapas.map(e => (
+          <div class="flex gap-5 p-7 bg-stone-50 rounded-xl border border-stone-200">
+            <span class="text-stone-300 font-mono text-sm shrink-0 pt-0.5">{e.n}</span>
+            <div>
+              <h3 class="text-stone-900 font-semibold mb-2">{e.title}</h3>
+              <p class="text-stone-500 text-sm leading-relaxed">{e.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Por que importa -->
+  <section class="bg-stone-50 py-20 px-6 border-y border-stone-200">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+        <div>
+          <p class="text-stone-500 text-xs font-medium tracking-widest uppercase mb-3">O problema sem administração</p>
+          <h2 class="text-3xl font-semibold text-stone-900 tracking-tight mb-6">
+            Projeto aprovado.<br />Obra que não seguiu.
+          </h2>
+          <p class="text-stone-500 leading-relaxed mb-4">
+            Sem acompanhamento técnico, desvios de projeto passam despercebidos até a entrega. Piso errado, parede fora de prumo, instalação elétrica improvisada. O custo de corrigir depois é sempre maior do que o de acompanhar antes.
+          </p>
+          <p class="text-stone-500 leading-relaxed">
+            A administração de obras não é luxo. É o que garante que você pagou pelo que está recebendo.
+          </p>
+        </div>
+        <div>
+          <p class="text-stone-500 text-xs font-medium tracking-widest uppercase mb-3">Com administração de obras</p>
+          <ul class="flex flex-col gap-4">
+            {[
+              'Desvios identificados e corrigidos durante a execução',
+              'Relatórios documentados — base para cobrar responsabilidades',
+              'Menos atraso por falta de decisão técnica na obra',
+              'Cliente informado em cada etapa, sem precisar ir ao canteiro todo dia',
+              'Entrega conforme projeto aprovado — sem surpresas',
+            ].map(item => (
+              <li class="flex items-start gap-3 text-sm text-stone-700">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-stone-900 shrink-0 mt-0.5">
+                  <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
+                </svg>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-white py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-12">
+        <p class="text-stone-500 text-xs font-medium tracking-widest uppercase mb-3">Dúvidas frequentes</p>
+        <h2 class="text-3xl font-semibold text-stone-900 tracking-tight">Perguntas e respostas</h2>
+      </div>
+      <div class="flex flex-col gap-6 max-w-3xl">
+        {perguntas.map(p => (
+          <div class="p-7 bg-stone-50 rounded-xl border border-stone-200">
+            <h3 class="text-stone-900 font-semibold mb-3">{p.q}</h3>
+            <p class="text-stone-500 text-sm leading-relaxed">{p.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTAWhatsApp
+    headline="Quer garantir que a obra saia como o projeto?"
+    subtext="A gente explica como funciona, sem compromisso. Uma conversa resolve."
+  />
+</Layout>

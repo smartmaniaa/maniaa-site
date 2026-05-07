@@ -1,0 +1,97 @@
+---
+const navLinks = [
+  { href: '/servicos', label: 'Serviços' },
+  { href: '/processo', label: 'Como trabalhamos' },
+  { href: '/projetos', label: 'Projetos' },
+  { href: '/escritorio', label: 'Escritório' },
+  { href: '/contato', label: 'Contato' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 bg-stone-50/95 backdrop-blur-sm border-b border-stone-200">
+  <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
+    <!-- Logo -->
+    <a href="/" class="text-lg font-semibold tracking-tight text-stone-900 hover:text-stone-600 transition-colors">
+      Manià Arquitetura
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center gap-7">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class={`text-sm font-medium transition-colors ${
+            currentPath === link.href || currentPath.startsWith(link.href + '/')
+              ? 'text-stone-900'
+              : 'text-stone-500 hover:text-stone-900'
+          }`}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- CTA -->
+    <a
+      href="https://wa.me/5515991252290?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20meu%20projeto"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="hidden md:inline-flex items-center gap-2 bg-stone-900 text-stone-50 text-sm font-medium px-4 py-2 rounded-lg hover:bg-stone-700 transition-colors"
+    >
+      Falar pelo WhatsApp
+    </a>
+
+    <!-- Mobile menu button -->
+    <button
+      id="mobile-menu-btn"
+      aria-label="Abrir menu"
+      class="md:hidden p-2 text-stone-600 hover:text-stone-900"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" id="icon-menu">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hidden" id="icon-close">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Nav -->
+  <div id="mobile-menu" class="md:hidden hidden border-t border-stone-200 bg-stone-50">
+    <nav class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-4">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class="text-sm font-medium text-stone-700 hover:text-stone-900 transition-colors py-1"
+        >
+          {link.label}
+        </a>
+      ))}
+      <a
+        href="https://wa.me/5515991252290?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20meu%20projeto"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center bg-stone-900 text-stone-50 text-sm font-medium px-4 py-2.5 rounded-lg hover:bg-stone-700 transition-colors mt-2"
+      >
+        Falar pelo WhatsApp
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const iconMenu = document.getElementById('icon-menu');
+  const iconClose = document.getElementById('icon-close');
+
+  btn?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden');
+    iconMenu?.classList.toggle('hidden');
+    iconClose?.classList.toggle('hidden');
+    btn.setAttribute('aria-label', isOpen ? 'Abrir menu' : 'Fechar menu');
+  });
+</script>

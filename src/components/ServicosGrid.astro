@@ -1,0 +1,84 @@
+---
+const servicos = [
+  {
+    title: 'Projeto Residencial',
+    description: 'Casas e apartamentos que funcionam no cotidiano — não só nas fotos.',
+    href: '/servicos/projeto-residencial',
+    star: false,
+  },
+  {
+    title: 'Projeto Comercial',
+    description: 'Ambientes de trabalho e atendimento que traduzem a identidade da sua marca.',
+    href: '/servicos/projeto-comercial',
+    star: false,
+  },
+  {
+    title: 'Reforma e Retrofit',
+    description: 'Atualização de espaços existentes com o mínimo de desperdício e o máximo de resultado.',
+    href: '/servicos/reforma-retrofit',
+    star: false,
+  },
+  {
+    title: 'Design de Interiores',
+    description: 'Especificação de materiais, mobiliário e acabamentos com critério técnico e visual.',
+    href: '/servicos/design-de-interiores',
+    star: false,
+  },
+  {
+    title: 'Administração de Obras',
+    description: 'Acompanhamento técnico da execução — para que o projeto saia exatamente como foi aprovado.',
+    href: '/servicos/administracao-de-obras',
+    star: true,
+  },
+];
+---
+
+<section class="bg-white py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+    <div class="mb-12">
+      <p class="text-stone-500 text-xs font-medium tracking-widest uppercase mb-3">O que fazemos</p>
+      <h2 class="text-3xl sm:text-4xl font-semibold text-stone-900 tracking-tight">Serviços</h2>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {servicos.map(servico => (
+        <a
+          href={servico.href}
+          class={`group relative flex flex-col p-7 rounded-xl border transition-all ${
+            servico.star
+              ? 'bg-stone-900 text-stone-100 border-stone-900 hover:bg-stone-800'
+              : 'bg-stone-50 border-stone-200 hover:border-stone-400 hover:bg-white'
+          }`}
+        >
+          {servico.star && (
+            <span class="inline-flex items-center gap-1 text-[10px] font-semibold tracking-widest uppercase bg-stone-700 text-stone-300 px-2.5 py-1 rounded-full mb-5 self-start">
+              Serviço destaque
+            </span>
+          )}
+          <h3 class={`text-lg font-semibold mb-2.5 ${servico.star ? 'text-stone-100' : 'text-stone-900'}`}>
+            {servico.title}
+          </h3>
+          <p class={`text-sm leading-relaxed flex-1 ${servico.star ? 'text-stone-400' : 'text-stone-500'}`}>
+            {servico.description}
+          </p>
+          <div class={`mt-6 flex items-center gap-1 text-sm font-medium ${servico.star ? 'text-stone-300' : 'text-stone-600'} group-hover:gap-2 transition-all`}>
+            Saiba mais
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+            </svg>
+          </div>
+        </a>
+      ))}
+
+      <!-- Filler card para alinhar grid -->
+      <a
+        href="/servicos"
+        class="group flex flex-col items-start justify-center p-7 rounded-xl border border-dashed border-stone-300 hover:border-stone-400 transition-colors"
+      >
+        <p class="text-stone-500 text-sm font-medium group-hover:text-stone-700 transition-colors">
+          Ver todos os serviços →
+        </p>
+      </a>
+    </div>
+  </div>
+</section>

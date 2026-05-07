@@ -1,17 +1,86 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import ServicosGrid from '../components/ServicosGrid.astro';
+import CTAWhatsApp from '../components/CTAWhatsApp.astro';
 
+const diferenciais = [
+  {
+    n: '01',
+    title: 'Primeiro a gente desenha o que você imaginou.',
+    body: 'Antes de propor, a gente desenha o que você imaginou. Só depois mostra o que precisa ajustar — e por quê.',
+  },
+  {
+    n: '02',
+    title: 'Menos revisões não é sorte. É método.',
+    body: 'Testar a sua ideia antes de oferecer a nossa. Resultado: menos idas e vindas, mais clareza na aprovação.',
+  },
+  {
+    n: '03',
+    title: 'Administração de obras: transparência total.',
+    body: 'O cliente acompanha cada decisão — menos erros, execução fiel ao projeto. Sem surpresas na entrega.',
+  },
+  {
+    n: '04',
+    title: 'Doze anos sem nunca precisar prospectar.',
+    body: 'Adimax, Apex, Hershey, Cervejaria Imperatriz. A carteira de clientes cresceu por indicação. Não por anúncio.',
+  },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  title="Manià Arquitetura — Arquiteto em Sorocaba/SP"
+  description="Arquiteto em Sorocaba. Projeto residencial, comercial, reforma e administração de obras. 12 anos projetando com método — menos revisões, obra fiel ao projeto."
+>
+  <Hero />
+
+  <ServicosGrid />
+
+  <!-- Diferenciais -->
+  <section class="bg-stone-50 py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="mb-12">
+        <p class="text-stone-500 text-xs font-medium tracking-widest uppercase mb-3">Por que a Manià</p>
+        <h2 class="text-3xl sm:text-4xl font-semibold text-stone-900 tracking-tight">O que nos diferencia</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {diferenciais.map(d => (
+          <div class="flex gap-6 p-8 bg-white rounded-xl border border-stone-200">
+            <span class="text-stone-300 font-mono text-sm pt-0.5 shrink-0">{d.n}</span>
+            <div>
+              <h3 class="text-stone-900 font-semibold text-base mb-2">{d.title}</h3>
+              <p class="text-stone-500 text-sm leading-relaxed">{d.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Processo teaser -->
+  <section class="bg-white py-20 px-6 border-t border-stone-100">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+      <div class="max-w-xl">
+        <p class="text-stone-500 text-xs font-medium tracking-widest uppercase mb-3">Método</p>
+        <h2 class="text-3xl font-semibold text-stone-900 tracking-tight mb-4">
+          Do primeiro contato à entrega da chave.
+        </h2>
+        <p class="text-stone-500 text-base leading-relaxed">
+          Um processo claro em etapas definidas — para que você saiba sempre em que fase está o projeto e o que vem a seguir.
+        </p>
+      </div>
+      <a
+        href="/processo"
+        class="shrink-0 inline-flex items-center gap-2 border border-stone-300 text-stone-700 font-medium px-6 py-3 rounded-lg hover:border-stone-500 hover:text-stone-900 transition-colors"
+      >
+        Ver como trabalhamos
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <CTAWhatsApp />
+</Layout>

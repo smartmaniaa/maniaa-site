@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Mensagem enviada — Manià Arquitetura"
+  description="Obrigado pelo contato. Retornaremos em breve."
+>
+  <section class="bg-stone-50 min-h-[70vh] flex items-center justify-center px-6">
+    <div class="text-center max-w-lg">
+      <div class="w-14 h-14 bg-stone-900 rounded-full flex items-center justify-center mx-auto mb-8">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-7 h-7 text-stone-100">
+          <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
+        </svg>
+      </div>
+      <h1 class="text-3xl font-semibold text-stone-900 mb-4">Mensagem recebida.</h1>
+      <p class="text-stone-500 leading-relaxed mb-8">
+        Obrigado pelo contato. Retornamos em até 1 dia útil — geralmente antes disso.
+        Se preferir uma resposta mais rápida, manda mensagem no WhatsApp.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="https://wa.me/5515991252290?text=Ol%C3%A1%2C%20acabei%20de%20enviar%20um%20formul%C3%A1rio%20e%20gostaria%20de%20falar"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 bg-stone-900 text-stone-50 font-medium px-6 py-3 rounded-lg hover:bg-stone-700 transition-colors"
+        >
+          Falar pelo WhatsApp
+        </a>
+        <a href="/" class="inline-flex items-center justify-center border border-stone-300 text-stone-700 font-medium px-6 py-3 rounded-lg hover:border-stone-500 transition-colors">
+          Voltar ao início
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
